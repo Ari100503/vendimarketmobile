@@ -965,22 +965,15 @@ class VendimarketApp {
     // Update cart summary
     updateCartSummary() {
         const subtotal = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        const tax = subtotal * 0.08;
-        const serviceFee = 1.99;
-        const total = subtotal + tax + serviceFee;
+        const total = subtotal;
 
         const elements = {
             subtotal: document.getElementById('subtotal'),
-            tax: document.getElementById('tax'),
-            total: document.getElementById('total'),
-            serviceFee: document.getElementById('serviceFee')
+            total: document.getElementById('total')
         };
 
         if (elements.subtotal) elements.subtotal.textContent = `$${subtotal.toFixed(2)}`;
-        if (elements.tax) elements.tax.textContent = `$${tax.toFixed(2)}`;
         if (elements.total) elements.total.textContent = `$${total.toFixed(2)}`;
-        if (elements.serviceFee) elements.serviceFee.textContent = `$${serviceFee.toFixed(2)}`;
-
         this.updateTemperatureSummary();
     }
 
