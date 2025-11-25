@@ -354,10 +354,7 @@ class VendimarketApp {
 
         // Vendimarket locations in Milano
         const stores = [
-            { name: 'Vendimarket Duomo', lat: 45.4654, lng: 9.1859, status: 'Open 24/7' },
-            { name: 'Vendimarket Centrale', lat: 45.4865, lng: 9.2040, status: 'Open 24/7' },
-            { name: 'Vendimarket Porta Garibaldi', lat: 45.4848, lng: 9.1880, status: 'Open 24/7' },
-            { name: 'Vendimarket Navigli', lat: 45.4490, lng: 9.1775, status: 'Open 24/7' }
+            { name: 'Bocconi Campus', lat: 45.4502, lng: 9.1872, status: 'Main campus' }
         ];
 
         stores.forEach(store => {
