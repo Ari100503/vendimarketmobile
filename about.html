@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Vendimarket - Revolutionizing Retail Through Automation</title>
+    <meta name="description" content="Learn about Vendimarket's mission to revolutionize retail through innovative automation technology and seamless customer experiences.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-blue: #284054;
+            --bright-cyan: #0099FF;
+            --pure-white: #FFFFFF;
+            --warm-gray: #95A5A6;
+            --success-green: #27AE60;
+            --alert-orange: #E67E22;
+            --electric-blue: #3498DB;
+            --soft-mint: #1ABC9C;
+            --dark-slate: #1a252f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-slate) 100%);
+            color: var(--pure-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation (same as other pages) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px; /* o 65px, 70px - prova fino a trovare la dimensione giusta */
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--bright-cyan);
+        }
+
+        .cart-icon {
+            position: relative;
+            background: var(--bright-cyan);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--alert-orange);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 0;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--pure-white);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--bright-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--bright-cyan);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .story-content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--pure-white);
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Technology Deep Dive */
+        .tech-section {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--bright-cyan);
+        }
+
+        .tech-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--pure-white);
+        }
+
+        .tech-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-specs {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-specs h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--bright-cyan);
+        }
+
+        .tech-specs ul {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .tech-specs li {
+            margin-bottom: 0.25rem;
+            opacity: 0.8;
+        }
+
+        .tech-specs li:before {
+            content: "✓ ";
+            color: var(--success-green);
+            font-weight: 600;
+        }
+
+        /* Process Visualization */
+        .process-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-diagram {
+            background: var(--pure-white);
+            color: var(--primary-blue);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .process-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .process-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--bright-cyan);
+            color: var(--pure-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* Stats Dashboard */
+        .stats-section {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--bright-cyan);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bright-cyan);
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--pure-white);
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* Sustainability Section */
+        .sustainability-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sustainability-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .sustainability-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .sustainability-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--success-green);
+        }
+
+        .sustainability-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--pure-white);
+        }
+
+        .sustainability-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .impact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--success-green);
+            display: block;
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--bright-cyan);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--pure-white);
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--pure-white);
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--bright-cyan);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .team-bio {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-slate);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--pure-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Navbar */
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(37, 59, 77, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .cart-icon {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            /* Main content */
+            .main-content {
+                padding: 0;
+                margin-top: 70px;
+            }
+
+            .hero-section {
+                padding: 2rem 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            /* Story section */
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-card {
+                padding: 1.5rem;
+            }
+
+            /* Tech section */
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .tech-card {
+                padding: 1.5rem;
+            }
+
+            /* Stats */
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            /* Team */
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            /* Timeline */
+            .timeline-item {
+                padding-left: 3rem;
+            }
+
+            .timeline-date {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                width: 85%;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="resources/vendimarket-logo.png" alt="VendiMarket">
+            </a>
+            <button class="mobile-menu-button" id="mobileMenuBtn" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#stores">Stores</a></li>
+            </ul>
+            <a href="cart.html" class="cart-icon">
+                <span>🛍️</span> Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <h1 class="hero-title fade-in">Revolutionizing Retail</h1>
+                <p class="hero-subtitle fade-in">Through Automation Innovation</p>
+                <p class="hero-description fade-in">
+                    At Vendimarket, we're not just changing how people shop – we're redefining the entire retail experience. 
+                    Our mission is to make convenience truly convenient, combining cutting-edge automation technology 
+                    with an unwavering commitment to customer satisfaction.
+                </p>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story-section">
+            <h2 class="section-title fade-in">Our Story</h2>
+            
+            <div class="story-grid">
+                <div class="story-content slide-in-left">
+                    <h3>The Problem We Solve</h3>
+                    <p>
+                        Traditional retail is broken. Long queues, limited hours, and inefficient processes have become the norm. 
+                        We recognized that in our fast-paced world, people deserve better than waiting in line for essentials.
+                    </p>
+                    <p>
+                        Our founders, veterans in retail technology and automation, saw an opportunity to create something revolutionary – 
+                        a shopping experience that works around your schedule, not the other way around.
+                    </p>
+                </div>
+                <div class="story-image slide-in-right">
+                    <img src="resources/hero-vending.jpg" alt="Modern Vendimarket Store">
+                </div>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-image slide-in-left">
+                    <img src="resources/tech-diagram.jpg" alt="Vendimarket Technology Process">
+                </div>
+                <div class="story-content slide-in-right">
+                    <h3>Our Solution</h3>
+                    <p>
+                        Vendimarket represents the perfect fusion of advanced robotics, AI-driven inventory management, 
+                        and customer-centric design. Our automated supermarkets operate 24/7, delivering a seamless 
+                        shopping experience that's faster, smarter, and more efficient than traditional retail.
+                    </p>
+                    <p>
+                        Every aspect of our technology is designed with one goal in mind: getting you what you need, 
+                        when you need it, with zero friction and maximum convenience.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Deep Dive -->
+        <section class="tech-section">
+            <div class="tech-container">
+                <h2 class="section-title fade-in">Advanced Technology</h2>
+                <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">
+                    Our proprietary automation system represents years of research and development in robotics, 
+                    AI, and retail technology.
+                </p>
+
+                <div class="tech-grid">
+                    <div class="tech-card fade-in">
+                        <div class="tech-icon">🤖</div>
+                        <h3>Robotic Fulfillment</h3>
+                        <p>
+                            High-speed robotic arms and conveyor systems retrieve items from climate-controlled storage, 
+                            ensuring perfect accuracy and lightning-fast fulfillment.
+                        </p>
+                        <div class="tech-specs">
+                            <h4>Specifications</h4>
+                            <ul>
+                                <li>90-second average fulfillment time</li>
+                                <li>99.9% accuracy rate</li>
+                                <li>3,500+ SKU capacity</li>
+                                <li>Multi-temperature zones</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tech-card fade-in">
+                        <div class="tech-icon">🧠</div>
+                        <h3>AI Inventory Management</h3>
+                        <p>
+                            Machine learning algorithms predict demand patterns, optimize stock levels, and ensure 
+                            your favorite products are always available when you need them.
+                        </p>
+                        <div class="tech-specs">
+                            <h4>Features</h4>
+                            <ul>
+                                <li>Real-time demand forecasting</li>
+                                <li>Automated replenishment</li>
+                                <li>Expiration date tracking</li>
+                                <li>Dynamic product placement</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tech-card fade-in">
+                        <div class="tech-icon">🔒</div>
+                        <h3>Smart Locker System</h3>
+                        <p>
+                            Individual climate-controlled lockers ensure your items stay fresh and secure until pickup. 
+                            One scan opens your personal locker – no searching, no confusion.
+                        </p>
+                        <div class="tech-specs">
+                            <h4>Security Features</h4>
+                            <ul>
+                                <li>QR code authentication</li>
+                                <li>Temperature monitoring</li>
+                                <li>Theft prevention systems</li>
+                                <li>24/7 surveillance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tech-card fade-in">
+                        <div class="tech-icon">📱</div>
+                        <h3>Intelligent Interface</h3>
+                        <p>
+                            Touchscreens and mobile app integration create a seamless shopping experience. 
+                            AI learns your preferences and suggests products you'll love.
+                        </p>
+                        <div class="tech-specs">
+                            <h4>Interface Features</h4>
+                            <ul>
+                                <li>Voice search capability</li>
+                                <li>Dietary preference filters</li>
+                                <li>Recipe bundle suggestions</li>
+                                <li>Multi-language support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Visualization -->
+        <section class="process-section">
+            <h2 class="section-title fade-in">How It Works</h2>
+            <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">
+                Our revolutionary process transforms shopping from a chore into an experience.
+            </p>
+
+            <div class="process-diagram fade-in">
+                <h3 class="process-title">The Vendimarket Process</h3>
+                <img src="resources/tech-diagram.jpg" alt="Vendimarket Technology Process" class="process-image">
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4 class="step-title">Enter & Authenticate</h4>
+                        <p class="step-description">
+                            Scan your QR code or use facial recognition to enter the store. 
+                            The system recognizes you and prepares for your shopping session.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4 class="step-title">Browse & Select</h4>
+                        <p class="step-description">
+                            Use intuitive touchscreens to browse our full catalog. 
+                            AI suggests products based on your preferences and purchase history.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4 class="step-title">Automated Fulfillment</h4>
+                        <p class="step-description">
+                            Robotic systems retrieve your items from climate-controlled storage. 
+                            Items are sorted and delivered to your personal locker.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4 class="step-title">Pay & Collect</h4>
+                        <p class="step-description">
+                            Complete payment through multiple options including contactless, mobile wallet, 
+                            or cash. One scan opens your locker to collect all items.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Dashboard -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <h2 class="section-title fade-in">Performance Metrics</h2>
+                <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">
+                    Our technology delivers measurable improvements in efficiency, customer satisfaction, and operational excellence.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-number" data-target="60">0</div>
+                        <div class="stat-label">Seconds Average</div>
+                        <div class="stat-description">
+                            From selection to pickup, our system delivers your items in under one minute
+                        </div>
+                    </div>
+
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-number" data-target="99.9">0</div>
+                        <div class="stat-label">% Accuracy Rate</div>
+                        <div class="stat-description">
+                            Near-perfect order accuracy through advanced robotics and quality control systems
+                        </div>
+                    </div>
+
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-number" data-target="3500">0</div>
+                        <div class="stat-label">Products Available</div>
+                        <div class="stat-description">
+                            Extensive catalog spanning multiple categories and temperature requirements
+                        </div>
+                    </div>
+
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">🔋</div>
+                        <div class="stat-number" data-target="99.8">0</div>
+                        <div class="stat-label">% Uptime</div>
+                        <div class="stat-description">
+                            Reliable 24/7 operation with redundant systems and predictive maintenance
+                        </div>
+                    </div>
+
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">😊</div>
+                        <div class="stat-number" data-target="96">0</div>
+                        <div class="stat-label">% Satisfaction</div>
+                        <div class="stat-description">
+                            Customer satisfaction rate based on post-purchase surveys and feedback
+                        </div>
+                    </div>
+
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon">🌱</div>
+                        <div class="stat-number" data-target="75">0</div>
+                        <div class="stat-label">% Less Waste</div>
+                        <div class="stat-description">
+                            Reduced food waste through precise inventory management and demand forecasting
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Section -->
+        <section class="sustainability-section">
+            <h2 class="section-title fade-in">Sustainability Impact</h2>
+            <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">
+                We're committed to building a more sustainable future through intelligent automation and responsible business practices.
+            </p>
+
+            <div class="sustainability-grid">
+                <div class="sustainability-card fade-in">
+                    <div class="sustainability-icon">♻️</div>
+                    <h3>Waste Reduction</h3>
+                    <p>
+                        Our AI-driven inventory system reduces food waste by 75% compared to traditional retail. 
+                        Precise demand forecasting ensures optimal stock levels and minimal spoilage.
+                    </p>
+                    <span class="impact-number">75%</span>
+                    <p>Less food waste</p>
+                </div>
+
+                <div class="sustainability-card fade-in">
+                    <div class="sustainability-icon">⚡</div>
+                    <h3>Energy Efficiency</h3>
+                    <p>
+                        Advanced climate control systems and LED lighting reduce energy consumption by 40%. 
+                        Smart scheduling optimizes power usage during off-peak hours.
+                    </p>
+                    <span class="impact-number">40%</span>
+                    <p>Energy savings</p>
+                </div>
+
+                <div class="sustainability-card fade-in">
+                    <div class="sustainability-icon">🚚</div>
+                    <h3>Reduced Emissions</h3>
+                    <p>
+                        Centralized fulfillment and optimized delivery routes reduce transportation emissions. 
+                        Local sourcing partnerships minimize supply chain carbon footprint.
+                    </p>
+                    <span class="impact-number">60%</span>
+                    <p>Fewer delivery miles</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="team-container">
+                <h2 class="section-title fade-in">Leadership Team</h2>
+                <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">
+                    Meet the innovators driving the future of automated retail.
+                </p>
+
+                <div class="team-grid">
+                    <div class="team-card fade-in">
+                        <div class="team-avatar">👩‍🔬</div>
+                        <div class="team-name">Arianna Parizzi</div>
+                        <div class="team-role">Co-Founder</div>
+                        <div class="team-bio">
+                            Industrial hardware engineer specializing in robotics and safety-critical systems. 
+                            13+ years designing PLCs, machine vision tooling, and factory automation lines. 
+                            Former principal engineer at a leading robotics OEM.
+                        </div>
+                    </div>
+
+                    <div class="team-card fade-in">
+                        <div class="team-avatar">👩‍🔬</div>
+                        <div class="team-name">Claudia Marconi</div>
+                        <div class="team-role">Co-Founder</div>
+                        <div class="team-bio">
+                            15+ years in retail technology and automation. Former VP of Innovation at TechRetail Inc. 
+                            Led development of automated checkout systems used by major retailers worldwide.
+                        </div>
+                    </div>
+                    
+                    <div class="team-card fade-in">
+                        <div class="team-avatar">👩‍🔬</div>
+                        <div class="team-name">Sofia Stropeni</div>
+                        <div class="team-role">Co-Founder</div>
+                        <div class="team-bio">
+                            PhD in Robotics Engineering from MIT. Former lead engineer at Amazon Robotics. 
+                            Specialist in autonomous systems and AI-driven inventory management.
+                        </div>
+                    </div>
+
+                    <div class="team-card fade-in">
+                        <div class="team-avatar">👩‍🔬</div>
+                        <div class="team-name">Maria Ivanova</div>
+                        <div class="team-role">Co-Founder</div>
+                        <div class="team-bio">
+                            Product leader for AI and automation platforms. 10+ years building cloud-native 
+                            orchestration and analytics for large IoT fleets. Former head of product at a Series B 
+                            robotics startup, driving 0→1 launches and enterprise adoption.
+                        </div>
+                    </div>
+                    
+                    <div class="team-card fade-in">
+                        <div class="team-avatar">👨‍💼</div>
+                        <div class="team-name">Alessandro D'Alterio</div>
+                        <div class="team-role">Co-Founder</div>
+                        <div class="team-bio">
+                            Software architect with expertise in distributed systems and IoT. 
+                            12+ years developing scalable automation solutions for Fortune 500 companies.
+                        </div>
+                    </div>
+
+                    <div class="team-card fade-in">
+                        <div class="team-avatar">👨‍💼</div>
+                        <div class="team-name">Francesco Gigliucci</div>
+                        <div class="team-role">Co-Founder</div>
+                        <div class="team-bio">
+                            Award-winning UX designer focused on human-centered automation. 
+                            Former design lead at Apple, specializing in intuitive interfaces for complex systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Vendimarket. Revolutionizing retail through automation innovation.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
