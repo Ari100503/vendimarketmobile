@@ -346,7 +346,7 @@ class VendimarketApp {
         if (!mapContainer || typeof L === 'undefined') return;
 
         // Milano coordinates - Piazza del Duomo
-        const map = L.map('storeMap').setView([45.4642, 9.1900], 13);
+        const map = L.map('storeMap').setView([45.4502, 9.1872], 17);
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
@@ -354,7 +354,7 @@ class VendimarketApp {
 
         // Vendimarket locations in Milano
         const stores = [
-            { name: 'Bocconi Campus', lat: 45.4502, lng: 9.1872, status: 'Main campus' }
+            { name: 'Bocconi Vendimarket', lat: 45.4502, lng: 9.1872, status: 'Open 24/7' }
         ];
 
         stores.forEach(store => {
