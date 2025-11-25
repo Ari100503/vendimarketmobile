@@ -894,7 +894,7 @@ class VendimarketApp {
             section.innerHTML = `
                 <div class="temp-header">
                     <span>${this.getTemperatureIcon(temperature)} ${temperature.charAt(0).toUpperCase() + temperature.slice(1)} Zone</span>
-                    <span class="temp-pickup-time">Ready in 2-3 min</span>
+                    <span class="temp-pickup-time">Ready in 90 seconds</span>
                 </div>
             `;
 
